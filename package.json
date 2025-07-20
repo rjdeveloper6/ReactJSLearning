@@ -1,0 +1,21 @@
+{
+  "name": "react-js-practice",
+  "version": "1.0.0",
+  "description": "This is a React JS Practice By Rhushikesh",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "Rhushikesh Joshi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
