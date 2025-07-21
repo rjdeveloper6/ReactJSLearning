@@ -1,27 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const HeaderComponent = () => {
-  return (
-    <div className="header">
-      <div className="log-container">
-        <img
-          className="logo"
-          src="https://img.freepik.com/free-vector/detailed-chef-logo-template_23-2148987940.jpg?semt=ais_hybrid&w=740"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
 const resObject = [
   {
     card: {
@@ -738,56 +714,5 @@ const resObject = [
     },
   },
 ];
-const RestoruntCard = (props) => {
-  console.log("", props.resData);
-  const { resData } = props;
 
-  const { name, cuisines, avgRatingString, costForTwo, cloudinaryImageId } =
-    resData?.info;
-
-  return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img
-        className="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRatingString}</h4>
-      <h4>{costForTwo}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {resObject.map((restorunt) => {
-          return (
-            <RestoruntCard
-              key={restorunt.card.card.info.id}
-              resData={restorunt.card.card}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <HeaderComponent />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default resObject;

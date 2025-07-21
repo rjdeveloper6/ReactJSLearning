@@ -43,4 +43,12 @@
   flex-wrap: wrap;
   display: flex;
 }
+
+.filter-btn {
+  background-color: #f0f0f0;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
