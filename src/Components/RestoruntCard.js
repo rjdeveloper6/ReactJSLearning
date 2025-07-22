@@ -1,7 +1,7 @@
 import { IMAGE_URL } from "../utils/constant";
 
 const RestoruntCard = (props) => {
-  console.log("", props.resData);
+  //console.log("", props.resData);
   const { resData } = props;
 
   const { name, cuisines, avgRatingString, costForTwo, cloudinaryImageId } =
