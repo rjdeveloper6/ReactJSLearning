@@ -13,7 +13,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5246091&lng=73.8786239&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5246091&lng=73.8786239&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(
@@ -40,7 +40,12 @@ const Body = () => {
             id=""
             className="search-box"
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+              if (e.target.value === "") {
+                setFilteredRestoruntList(restoruntlist);
+              }
+            }}
             placeholder="Search for restaurants"
           />
           <button
@@ -63,7 +68,7 @@ const Body = () => {
             const filteredList = restoruntlist.filter(
               (restorunt) => restorunt.info.avgRatingString > 4.3
             );
-            setRestoruntList(filteredList);
+            setFilteredRestoruntList(filteredList);
           }}
         >
           Top Rated Restaurants
