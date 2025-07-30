@@ -51,4 +51,49 @@
   padding: 10px;
   font-size: 20px;
 }
+
+.shimmer-card {
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+}
+
+.shimmer-container {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.login-btn {
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: none;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.search-box {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.search-btn {
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.filter {
+  align-items: center;
+  margin: 10px;
+  display: flex;
+}
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
