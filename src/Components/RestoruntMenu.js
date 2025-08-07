@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { useParams } from "react-router";
+import { RESTAURANT_MENU_API } from "../utils/constant";
 
 const RestoruntMenu = () => {
   const [restaurantMenu, setRestaurantMenu] = useState(null);
+
+  const { id } = useParams();
+  console.log("Restaurant ID:", id);
 
   useEffect(() => {
     fetchRestaurantMenu();
   }, []);
 
   const fetchRestaurantMenu = async () => {
-    const res = await fetch(
-      "https://corsproxy.io/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5529716&lng=73.7699627&restaurantId=613996&catalog_qa=undefined&submitAction=ENTER"
-    );
+    const res = await fetch(RESTAURANT_MENU_API + id);
+    console.log("Response:", RESTAURANT_MENU_API + id);
     const data = await res.json();
     console.log("Restaurant Menu Data:", data);
     setRestaurantMenu(data.data);
   };
 
-  const { name, cuisines, cloudinaryImageId, costForTwoMessage } =
+  const { name, cuisines, costForTwoMessage } =
     restaurantMenu?.cards[2].card.card.info || {};
 
   const { itemCards } =
