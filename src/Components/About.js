@@ -1,4 +1,6 @@
 import React from "react";
+import User from "./User";
+import UserClass from "./UserClass";
 
 const About = () => {
   return (
@@ -12,6 +14,12 @@ const About = () => {
         Our mission is to provide fast, reliable, and convenient food delivery
         to your doorstep.
       </p>
+      <User
+        name={"Rhushikesh"}
+        contact={"1234567890"}
+        email={"rhushikesh@example.com"}
+      ></User>
+      <UserClass></UserClass>
     </div>
   );
 };
