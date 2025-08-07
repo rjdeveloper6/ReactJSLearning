@@ -1,14 +1,16 @@
 import RestoruntCard from "./RestoruntCard";
-
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restoruntlist, setRestoruntList] = useState([]);
   const [filteredRestoruntList, setFilteredRestoruntList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [isTopRatedFilter, setIsTopRatedFilter] = useState(false);
   useEffect(() => {
     fetchData();
+    console.log("useEffect called");
   }, []);
 
   const fetchData = async () => {
@@ -65,18 +67,31 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = restoruntlist.filter(
-              (restorunt) => restorunt.info.avgRatingString > 4.3
-            );
-            setFilteredRestoruntList(filteredList);
+            if (!isTopRatedFilter) {
+              const filteredList = restoruntlist.filter(
+                (restorunt) => restorunt.info.avgRatingString > 4.3
+              );
+              setIsTopRatedFilter(true);
+              setFilteredRestoruntList(filteredList);
+            } else {
+              setFilteredRestoruntList(restoruntlist);
+              setIsTopRatedFilter(false);
+            }
           }}
         >
-          Top Rated Restaurants
+          {isTopRatedFilter ? "Show All" : "Top Rated"}
         </button>
       </div>
       <div className="res-container">
         {filteredRestoruntList.map((restorunt) => {
-          return <RestoruntCard key={restorunt.info.id} resData={restorunt} />;
+          return (
+            <Link
+              to={`/restaurant/${restorunt.info.id}`}
+              key={restorunt.info.id}
+            >
+              <RestoruntCard resData={restorunt} />
+            </Link>
+          );
         })}
       </div>
     </div>

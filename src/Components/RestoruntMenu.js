@@ -43,7 +43,9 @@ const RestoruntMenu = () => {
           <li key={item.card.info.id}>
             <h3>{item.card.info.name}</h3>
             <p>{item.card.info.description}</p>
-            <h4>₹{item.card.info.price / 100}</h4>
+            <h4>
+              ₹{item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+            </h4>
           </li>
         ))}
       </ul>
